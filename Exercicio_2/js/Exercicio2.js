@@ -1,10 +1,12 @@
+console.log('--Exercício 2--');
+    console.log('');
+
 const btnCalcResultado = document.querySelector('#btnCalcResultado');
 const discliplinaG = document.querySelectorAll('.disciplinaGeral')
 console.log(discliplinaG);
 
 btnCalcResultado.addEventListener('click', function () {
-    console.log('--Exercício 2--');
-    console.log('');
+    
     let mediaFinall = 0
 
     for (let i = 0; i < discliplinaG.length; i++) {
@@ -14,7 +16,18 @@ btnCalcResultado.addEventListener('click', function () {
         
         discliplinaG[i].querySelector('.mediaFinal').textContent = mediaFinall.toFixed(1)
 
-        
+        if(mediaFinall >= 6) {
+            discliplinaG[i].querySelector('.resultadoFinal').textContent = 'Aprovado'
+            discliplinaG[i].querySelector('.resultadoFinal').classList.add('text-bg-success')
+        }
+        else if(mediaFinall >=4 && mediaFinall < 6) {
+            discliplinaG[i].querySelector('.resultadoFinal').textContent = 'Exame'
+            discliplinaG[i].querySelector('.resultadoFinal').classList.add('text-bg-warning')
+        }
+        else {
+            discliplinaG[i].querySelector('.resultadoFinal').textContent = 'Reprovado'
+            discliplinaG[i].querySelector('.resultadoFinal').classList.add('text-bg-danger')
+        }
     }
     
 })
